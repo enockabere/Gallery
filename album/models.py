@@ -16,7 +16,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 class Location(models.Model):
-    place = models.CharField(max_length=100)
+    places = models.CharField(max_length=100)
 class Image(models.Model):
     image_name = models.CharField(max_length=100)
     image_description = models.TextField()

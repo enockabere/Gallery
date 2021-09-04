@@ -25,3 +25,6 @@ class ImageTest(TestCase):
         self.new_category = Category(name='Horror')
         self.new_category.save()
 
+        #creating new location and save it
+        self.new_location = Location(places='Nairobi')
+        self.new_location.save()
