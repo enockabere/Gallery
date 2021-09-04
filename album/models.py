@@ -29,3 +29,7 @@ class Image(models.Model):
     def nairobi_pics(cls):
         album = cls.objects.all()
         return album
+    @classmethod
+    def search_by_category(cls,search_query):
+        album = cls.objects.filter(category__icontains__unaccent=search_query)
+        return album
