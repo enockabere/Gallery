@@ -37,3 +37,7 @@ python3 manage.py sqlmigrate 0001
 
 ## Run Migration
 python3 manage.py migrate
+
+NB: Error;
+    TypeError: __init__() missing 1 required positional argument: 'on_delete'
+**add** on_delete=models.CASCADE (if you have a foreign key on your models)
