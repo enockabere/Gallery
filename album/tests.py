@@ -10,3 +10,8 @@ class UserTestCase(TestCase):
     #testing instance
     def test_user_instance(self):
         self.assertTrue(isinstance(self.enock, User))
+    #testing save method
+    def test_user_save(self):
+        self.enock.save_user()
+        users = User.objects.all()
+        self.assertTrue(len(users) > 0)

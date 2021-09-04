@@ -38,6 +38,11 @@ python3 manage.py sqlmigrate 0001
 ## Run Migration
 python3 manage.py migrate
 
+# Testing
+
+## Running Tests
+python3 manage.py test album
+
 # NB: Expected Errors;
 
 - TypeError: __init__() missing 1 required positional argument: 'on_delete'
