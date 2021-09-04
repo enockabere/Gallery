@@ -10,3 +10,9 @@ class Category(models.Model):
     
     def __str__(self):
         return self.name
+class Image(models.Model):
+    image_name = models.CharField(max_length=100)
+    image_description = models.TextField()
+    user = models.ForeignKey(User)
+    category = models.ManyToManyField(Category)
+    post_date = models.DateTimeField(auto_now_add=True)
