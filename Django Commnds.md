@@ -11,3 +11,6 @@ django-admin startproject gallery .
 
 ## We will create an album app then connect it to the gallery project.
 django-admin startapp album
+
+## Adding Bootstrap
+pip install django-bootstrap-v5 && pip freeze > requirements.txt
