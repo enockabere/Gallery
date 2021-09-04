@@ -11,7 +11,7 @@ class User(models.Model):
     def save_user(self):
         self.save()
 class Category(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30, blank=True)
     
     def __str__(self):
         return self.name
