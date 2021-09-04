@@ -15,3 +15,4 @@ class UserTestCase(TestCase):
         self.enock.save_user()
         users = User.objects.all()
         self.assertTrue(len(users) > 0)
+

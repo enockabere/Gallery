@@ -43,6 +43,11 @@ python3 manage.py migrate
 ## Running Tests
 python3 manage.py test album
 
+# Django Admin
+
+## Create Superuser
+python manage.py createsuperuser
+
 # NB: Expected Errors;
 
 - TypeError: __init__() missing 1 required positional argument: 'on_delete'
