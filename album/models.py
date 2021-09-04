@@ -24,4 +24,8 @@ class Image(models.Model):
     places = models.ForeignKey(Location,on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
     post_date = models.DateTimeField(auto_now_add=True)
- 
+    
+    @classmethod
+    def nairobi_pics(cls):
+        album = cls.objects.all()
+        return album
