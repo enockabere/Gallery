@@ -15,8 +15,15 @@ class Category(models.Model):
     
     def __str__(self):
         return self.name
+    
+    @classmethod
+    def search_by_category(cls,search_query):
+        album = cls.objects.filter(name__icontains=search_query)
+        return album
+    
 class Location(models.Model):
     places = models.CharField(max_length=100)
+    
 class Image(models.Model):
     image_name = models.CharField(max_length=100)
     image_description = models.TextField()
@@ -24,12 +31,10 @@ class Image(models.Model):
     places = models.ForeignKey(Location,on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
     post_date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to = 'images/')
     
     @classmethod
     def nairobi_pics(cls):
         album = cls.objects.all()
         return album
-    @classmethod
-    def search_by_category(cls,search_query):
-        album = cls.objects.filter(category__icontains__unaccent=search_query)
-        return album
+    

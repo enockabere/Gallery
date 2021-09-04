@@ -48,6 +48,9 @@ python3 manage.py test album
 ## Create Superuser
 python manage.py createsuperuser
 
+# Uploading Images
+pip install pillow && pip freeze > requirements.txt
+
 # NB: Expected Errors;
 
 - TypeError: __init__() missing 1 required positional argument: 'on_delete'
