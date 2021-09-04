@@ -56,6 +56,6 @@ python manage.py createsuperuser
 
 - Field 'id' expected a number but got datetime.datetime(2021, 9, 4, 14, 42, 5, 316108, tzinfo=<UTC>)
 
-    Go to migration files. Find 002 (or 003,004 etc )_auto.py files.
+        Go to migration files. Find 002 (or 003,004 etc )_auto.py files.
     
-    Change field = models.ForeignKey(default = django.utils.timezone.now) to default = 1
+        Change field = models.ForeignKey(default = django.utils.timezone.now) to default = 1

@@ -15,4 +15,13 @@ class UserTestCase(TestCase):
         self.enock.save_user()
         users = User.objects.all()
         self.assertTrue(len(users) > 0)
+class ImageTest(TestCase):
+    
+    def setUp(self):
+        self.enock = User(first_name='Enock',last_name='Abere', email = 'enockabere@gmail.com')
+        self.enock.save_user()
+           
+        #creating a new category and saving it
+        self.new_category = Category(name='Horror')
+        self.new_category.save()
 
