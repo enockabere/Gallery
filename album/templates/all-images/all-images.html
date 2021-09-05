@@ -10,9 +10,15 @@
             Locations
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">All</li>
+            <li class="list-group-item">
+              <a href="{% url 'allImages' %}">All</a>
+            </li>
             {% for location in locations %}
-            <li class="list-group-item">{{location.location}}</li>
+            <li class="list-group-item">
+              <a href="{% url 'allImages' %}?location={{location.location}}">
+                {{location.location}}
+              </a>
+            </li>
             {% endfor %}
 
           </ul>

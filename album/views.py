@@ -7,10 +7,14 @@ from .models import Image,Category, Location
 def welcome(request):
     return render(request, 'welcome.html')
 def all_images(request):
-
+    location = request.GET.get('location')
+    if location == None:
+        photos = Image.objects.all()
+    else:
+         photos = Image.objects.filter(location__location__icontains=location)
     categories = Category.objects.all()
     locations = Location.objects.all()
-    photos = Image.objects.all()
+    
     return render(request, 'all-images/all-images.html',{"categories":categories,"photos":photos,"locations":locations})
 
 def single_image(request, pk):
