@@ -3,4 +3,18 @@
 {% block content %}
     {{block.super}}
     <a class="btn btn-outline-dark" href="{% url 'allImages' %}">GO back</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                  <div class="card">
+                    <img src="{{photo.image.url}}" class="card-img-top">
+                    <div class="card-body">
+                      <p class="card-text">{{photo.name}}</p>
+                      <p>{{photo.description}}</p> 
+                    </div>
+                  </div>
+            </div>
+     
+        </div>
+    </div>
 {% endblock %}
