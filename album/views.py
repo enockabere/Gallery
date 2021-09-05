@@ -7,12 +7,16 @@ from .models import Image,Category
 def welcome(request):
     return render(request, 'welcome.html')
 def all_images(request):
-    date = dt.date.today()
-    my_album = Image.nairobi_pics()
-    return render(request, 'all-images/all-images.html',{"date":date,"my_album":my_album})
+
+    categories = Category.objects.all()
+    photos = Image.objects.all()
+    return render(request, 'all-images/all-images.html',{"categories":categories,"photos":photos})
+
 def single_image(request, pk):
-    date = dt.date.today()
-    return render(request, 'all-images/single-img.html',{"date":date,})
+    
+    photo = Image.objects.get(id=pk)
+    return render(request, 'all-images/single-img.html',{"photo":photo})
+
 def search_results(request):
     if 'search' in request.GET and request.GET["search"]:
         search_query = request.GET.get("search")

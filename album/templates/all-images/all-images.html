@@ -5,17 +5,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-5">
-            {% for my_album in my_album %}
-            <a href="{% url 'singleImage' 1 %}">
-              <img src="{{my_album.image.url}}" class="img-responsive" alt="Image">
+            {% for photo in photos %}
+            <a href="{% url 'singleImage' 1 %}"></a>
+              <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
             </a>
             <div class="card">
                 
                 
                 <div class="card-body">
-                    {{my_album.image_name}}  
-                    <p>{{my_album.post_date}}</p> 
-                    <p>{{my_album.id}}</p>                 
+                    {{photo.image_name}}  
+                    <p>{{photo.category.name}}</p>                
                 </div>
             </div>
             {% empty %}
@@ -24,5 +23,20 @@
         </div>
  
     </div>
+</div>
+<div class="container">
+  <div class="row">
+    <h3>Categories</h3>
+      <div class="col-md-5">
+          {% for category in categories %}
+          
+          <div class="card">
+     
+                  <p>{{category.name}}</p> 
+          
+          {% endfor %}
+      </div>
+
+  </div>
 </div>
 {% endblock %}
