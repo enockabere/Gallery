@@ -214,3 +214,21 @@
 #images{
   background-color:#f3fbfd;
 }
+#texts{
+  display: inline-block;
+  padding: 20px;
+}
+#text{
+  display: inline-block;
+}
+#myInput{
+  display: none;
+}
+#gits2{
+  border-color: #3C1874;
+  display: inline-block;
+}
+#gits2:hover{
+  border-color: #3C1874;
+  background-color: #3C1874;
+}
