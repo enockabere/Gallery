@@ -1,25 +1,37 @@
 {% extends 'all-images/base.html'%} 
 {% block content %}
-<div class="container">
-
-  <div class="row">
-    {% if images %}
-      <h2>Found {{ images|length }} of searched term {{message}}</h2>
-    {% else %}
-      <h2> Found 0 images for the search term {{message}}</h2>
-    {% endif %}
-
-  </div>
-
-  <div class="row">
-
-  {% if images %}
-    {% for image in images %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{image.name}}</h1>
+<section class="search">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card" id="sach">
+          {% if images %}
+            <h2>Found {{ images|length }} of searched term {{message}}</h2>
+          {% else %}
+            <h2> Found 0 images for the search term {{message}}</h2>
+          {% endif %}
+        </div>
       </div>
-    {% endfor %}
-  {% endif %}
+    </div>
+    <div class="row">
+      <div class="row">
+        {% if images %}
+        {% for image in images %}
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" id="imgs">
+          <div class="hovereffect">
+              <img class="img-fluid" src="{{image.image.url}}" alt="">
+              <div class="overlay">
+                 <h2>{{image.name}}</h2>
+                 <a class="info" href="">View Photo</a>
+              </div>
+          </div>
+      </div>
+      {% empty %}
+      <h3>NO Image Available</h3>
+      {% endfor %}
+      {% endif %}
+      </div>     
+    </div>
   </div>
-</div>
+</section>
 {% endblock %}

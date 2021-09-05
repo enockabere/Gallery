@@ -221,9 +221,9 @@
 #text{
   display: inline-block;
 }
-#myInput{
+/* #myInput{
   display: none;
-}
+} */
 #gits2{
   border-color: #3C1874;
   display: inline-block;
@@ -231,4 +231,10 @@
 #gits2:hover{
   border-color: #3C1874;
   background-color: #3C1874;
+}
+.search{
+  margin-top: 40px;
+}
+#sach{
+  margin-top: 40px;
 }

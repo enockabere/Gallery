@@ -15,7 +15,7 @@
                 <p class="card-text"id="texts"><small class="text-muted"><span class="br">Location</span> {{photo.location.location}}</small></p>
                 <p class="card-text"id="texts"><small class="text-muted"><span class="br">Category</span> {{photo.category.name}}</small></p>
                 <form action="">
-                  <input type="text" value="{{showurl}}" id="myInput">
+                  <input type="hidden" value="{{showurl}}" id="myInput">
                   <button type="button" id="gits2" onclick="Hello()" class="btn btn-outline-success">Copy Image Url</button>
                   <a class="btn btn-outline-dark" href="{% url 'allImages' %}" style="float:right">Close</a>
               </form>
@@ -25,28 +25,12 @@
         </div>
       </div>
     </section>
-    <!-- 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                  <div class="card">
-                    <img src="" class="card-img-top">
-                    <div class="card-body">
-                      <p class="card-text"></p>
-                      <p></p> 
-                    </div>
-                  </div>
-            </div>
-        </div>
-    </div>
-    
-
-<script>
+   <script>
   function Hello() {
   var copyText = document.getElementById('myInput')
   copyText.select();
   document.execCommand('copy')
   console.log('Copied Text')
 }
-</script> -->
+</script>
 {% endblock %}
