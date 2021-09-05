@@ -1,5 +1,6 @@
 {% extends 'all-images/base.html' %}
 
 {% block content %}
-{{block.super}}
+    {{block.super}}
+    <a class="btn btn-outline-dark" href="{% url 'allImages' %}">GO back</a>
 {% endblock %}
