@@ -19,8 +19,9 @@ def all_images(request):
 
 def single_image(request, pk):
     
+    showurl=request._current_scheme_host+request.path
     photo = Image.objects.get(id=pk)
-    return render(request, 'all-images/single-img.html',{"photo":photo})
+    return render(request, 'all-images/single-img.html',{"photo":photo,"showurl":showurl})
 
 def search_results(request):
     if 'search' in request.GET and request.GET["search"]:
