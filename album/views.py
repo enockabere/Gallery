@@ -4,8 +4,6 @@ import datetime as dt
 from .models import Image,Category, Location
 
 # Create your views here.
-def welcome(request):
-    return render(request, 'welcome.html')
 def all_images(request):
     location = request.GET.get('location')
     if location == None:

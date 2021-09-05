@@ -4,26 +4,6 @@
 {{block.super}}
 <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <div class="card">
-          <div class="card-header">
-            Locations
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <a href="{% url 'allImages' %}">All</a>
-            </li>
-            {% for location in locations %}
-            <li class="list-group-item">
-              <a href="{% url 'allImages' %}?location={{location.location}}">
-                {{location.location}}
-              </a>
-            </li>
-            {% endfor %}
-
-          </ul>
-        </div>
-      </div>
         <div class="col-md-3">
             {% for photo in photos %}
             <a href="{% url 'singleImage' photo.id %}">
@@ -41,5 +21,31 @@
         </div>
  
     </div>
+</div>
+<div class="lightbox">
+  <div class="row">
+    <div class="col-lg-6">
+      <img
+        src="https://mdbootstrap.com/img/Photos/Thumbnails/Slides/1.jpg"
+        data-mdb-img="https://mdbootstrap.com/img/Photos/Slides/1.jpg"
+        alt="Lightbox image 1"
+        class="w-100 mb-2 mb-md-4 shadow-1-strong rounded"
+      />
+      <img
+        src="https://mdbootstrap.com/img/Photos/Thumbnails/Square/1.jpg"
+        data-mdb-img="https://mdbootstrap.com/img/Photos/Square/1.jpg"
+        alt="Lightbox image 2"
+        class="w-100 shadow-1-strong rounded"
+      />
+    </div>
+    <div class="col-lg-6">
+      <img
+        src="https://mdbootstrap.com/img/Photos/Thumbnails/Vertical/1.jpg"
+        data-mdb-img="https://mdbootstrap.com/img/Photos/Vertical/1.jpg"
+        alt="Lightbox image 3"
+        class="w-100 shadow-1-strong rounded"
+      />
+    </div>
+  </div>
 </div>
 {% endblock %}
