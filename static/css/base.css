@@ -190,3 +190,27 @@
   -ms-transform: scale(1);
   transform: scale(1);
 }
+.section-header h2{
+  color: #229954;
+  text-align: center;
+  margin-top: 50px;
+  font-family: 'Lobster', cursive;
+  font-size: 40px;
+}
+.head{
+  color: #D35400;
+}
+.footer{
+  height: 60px;
+  background-color: #3C1874;
+}
+.rights h3{
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-family: 'Caveat', cursive;
+  font-size: 14px;
+}
+#images{
+  background-color:#f3fbfd;
+}
