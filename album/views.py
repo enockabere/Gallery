@@ -10,7 +10,7 @@ def all_images(request):
     date = dt.date.today()
     my_album = Image.nairobi_pics()
     return render(request, 'all-images/all-images.html',{"date":date,"my_album":my_album})
-def single_image(request):
+def single_image(request, pk):
     date = dt.date.today()
     return render(request, 'all-images/single-img.html',{"date":date,})
 def search_results(request):

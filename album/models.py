@@ -31,7 +31,7 @@ class Image(models.Model):
     places = models.ForeignKey(Location,on_delete=models.CASCADE)
     category = models.ManyToManyField(Category)
     post_date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to = 'images/')
+    image = models.ImageField(upload_to ='images/')
     
     @classmethod
     def nairobi_pics(cls):

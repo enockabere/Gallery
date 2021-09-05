@@ -6,13 +6,22 @@
     <div class="row">
         <div class="col-md-5">
             {% for my_album in my_album %}
+            <a href="{% url 'singleImage' 1 %}">
+              <img src="{{my_album.image}}" class="img-responsive" alt="Image">
+            </a>
             <div class="card">
+                
+                
                 <div class="card-body">
-                    {{my_album.image_name}}
+                    {{my_album.image_name}}  
+                    <p>{{my_album.post_date}}</p> 
+                    <p>{{my_album.id}}</p>                 
                 </div>
             </div>
+
             {% endfor %}
         </div>
+ 
     </div>
 </div>
 {% endblock %}
