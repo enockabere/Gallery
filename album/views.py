@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime as dt
-from .models import Image,Category
+from .models import Image,Category, Location
 
 # Create your views here.
 def welcome(request):
@@ -9,8 +9,9 @@ def welcome(request):
 def all_images(request):
 
     categories = Category.objects.all()
+    locations = Location.objects.all()
     photos = Image.objects.all()
-    return render(request, 'all-images/all-images.html',{"categories":categories,"photos":photos})
+    return render(request, 'all-images/all-images.html',{"categories":categories,"photos":photos,"locations":locations})
 
 def single_image(request, pk):
     

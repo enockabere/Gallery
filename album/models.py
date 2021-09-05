@@ -15,6 +15,9 @@ class Category(models.Model):
 class Location(models.Model):
     location = models.CharField(max_length=100)
     
+    def __str__(self):
+        return self.location
+    
 class Image(models.Model):
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     location = models.ForeignKey(Location,on_delete=models.CASCADE)
@@ -22,5 +25,8 @@ class Image(models.Model):
     description = models.TextField()
     image = models.ImageField(null=False,blank=False)
     post_date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
     
     

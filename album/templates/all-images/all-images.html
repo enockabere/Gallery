@@ -4,39 +4,36 @@
 {{block.super}}
 <div class="container">
     <div class="row">
-        <div class="col-md-5">
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-header">
+            Locations
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">All</li>
+            {% for location in locations %}
+            <li class="list-group-item">{{location.location}}</li>
+            {% endfor %}
+
+          </ul>
+        </div>
+      </div>
+        <div class="col-md-3">
             {% for photo in photos %}
-            <a href="{% url 'singleImage' 1 %}"></a>
-              <img src="{{photo.image.url}}" class="img-responsive" alt="Image">
-            </a>
-            <div class="card">
-                
-                
+            <a href="{% url 'singleImage' 1 %}">
+              <div class="card">
+                <img src="{{photo.image.url}}" class="card-img-top">
                 <div class="card-body">
-                    {{photo.image_name}}  
-                    <p>{{photo.category.name}}</p>                
+                  <p class="card-text">{{photo.name}}</p>
+                  <p>{{photo.category.name}}</p> 
                 </div>
-            </div>
+              </div>
+            </a>
             {% empty %}
             <h3>NOTHING</h3>
             {% endfor %}
         </div>
  
     </div>
-</div>
-<div class="container">
-  <div class="row">
-    <h3>Categories</h3>
-      <div class="col-md-5">
-          {% for category in categories %}
-          
-          <div class="card">
-     
-                  <p>{{category.name}}</p> 
-          
-          {% endfor %}
-      </div>
-
-  </div>
 </div>
 {% endblock %}
