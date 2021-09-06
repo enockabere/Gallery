@@ -2,3 +2,4 @@ virtual/
 gallery/*.pyc
 album/*.pyc
 .vscode/
+.env
