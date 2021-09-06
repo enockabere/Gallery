@@ -1,4 +1,4 @@
-[![codebeat badge](https://codebeat.co/badges/7bbb17b5-2cde-4108-aac0-eefcd439cf9f)](https://codebeat.co/projects/github-com-enockabere-insight-groove-master)
+[![codebeat badge](https://codebeat.co/badges/7bbb17b5-2cde-4108-aac0-eefcd439cf9f)](https://codebeat.co/projects/github-com-enockabere-gallery-master)
 # TimeLapse
 ## Project Description
 A personal gallery application that displays photos for others to see. 
