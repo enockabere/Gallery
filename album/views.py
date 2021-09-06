@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
 import datetime as dt
 from .models import Image,Category, Location
 
 # Create your views here.
 def all_images(request):
-    location = request.GET.get('location')
+    try:
+        location = request.GET.get('location')
+    except AttributeError:
+        raise Http404()
+        assert False
     if location == None:
         photos = Image.objects.all()
     else:
@@ -16,8 +20,11 @@ def all_images(request):
     return render(request, 'all-images/all-images.html',{"categories":categories,"photos":photos,"locations":locations})
 
 def single_image(request, pk):
-    
-    showurl=request._current_scheme_host+request.path
+    try:
+        showurl=request._current_scheme_host+request.path
+    except AttributeError:
+        raise Http404()
+        assert False
     photo = Image.objects.get(id=pk)
     return render(request, 'all-images/single-img.html',{"photo":photo,"showurl":showurl})
 
