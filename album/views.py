@@ -33,8 +33,9 @@ def search_results(request):
         for item in searched_category:
             searched_images = Image.search_by_category(item.id)
         message = f"{search_query}"
+        showurl=request._current_scheme_host+request.path
         
-        return render(request, 'all-images/search.html',{"message":message,"images":searched_images})
+        return render(request, 'all-images/search.html',{"message":message,"showurl":showurl,"images":searched_images})
     else:
         message = "You haven't searched for any item"
         return render(request,"all-images/search.html",{"message":message})

@@ -223,9 +223,6 @@
 #text{
   display: inline-block;
 }
-/* #myInput{
-  display: none;
-} */
 #gits2{
   border-color: #3C1874;
   display: inline-block;
@@ -256,4 +253,30 @@
   background-color: black;
   border-color: #229954;
   color: white;
+}
+.flash{
+  margin-top: 40px;
+}
+input[type=text] {
+  padding: 4px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 4px;
+  font-family: 'Merriweather', serif;
+}
+input[type=search] {
+  
+  font-family: 'Merriweather', serif;
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  #myInput{
+    width: 50%;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 480px) {
+#myInput{
+  width: 50%;
+}
 }

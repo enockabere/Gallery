@@ -1,37 +1,62 @@
-{% extends 'all-images/base.html'%} 
+{% extends 'all-images/base.html'%}
 {% block content %}
 <section class="search">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="card" id="sach">
+        <div class="flash">
           {% if images %}
-            <h2>Found {{ images|length }} of searched term {{message}}</h2>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">Found
+            <strong>{{ images|length }}</strong> of searched term <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
           {% else %}
-            <h2> Found 0 images for the search term {{message}}</h2>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Found 0 images for the search term <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
           {% endif %}
         </div>
       </div>
     </div>
+  </div>
+  <div class="container">
     <div class="row">
-      <div class="row">
-        {% if images %}
-        {% for image in images %}
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" id="imgs">
-          <div class="hovereffect">
-              <img class="img-fluid" src="{{image.image.url}}" alt="">
-              <div class="overlay">
-                 <h2>{{image.name}}</h2>
-                 <a class="info" href="">View Photo</a>
-              </div>
+      {% if images %}
+      {% for image in images %}
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <img src="{{image.image.url}}" class="card-img-top" height="500px" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{image.name}}</h5>
+            <p class="card-text">{{image.description}}</p>
+            <p class="card-text" id="text"><small class="text-muted"><span class="br">Last updated</span>
+                {{image.post_date}}</small></p>
+            <p class="card-text" id="texts"><small class="text-muted"><span class="br">Location</span>
+                {{image.location.location}}</small></p>
+            <p class="card-text" id="texts"><small class="text-muted"><span class="br">Category</span>
+                {{image.category.name}}</small></p>
+            <form action="">
+              <input type="text" value="{{showurl}}" id="myInput" readonly>
+              <button type="button" id="gits2" onclick="Hello()" class="btn btn-outline-success">Copy Image Url</button>
+              <a class="btn btn-outline-dark" href="{% url 'allImages' %}"  style="float:right;margin-top: 7px;">Close</a>
+            </form>
           </div>
+        </div>
       </div>
       {% empty %}
       <h3>NO Image Available</h3>
       {% endfor %}
       {% endif %}
-      </div>     
     </div>
   </div>
+  <script>
+    function Hello() {
+    var copyText = document.getElementById('myInput')
+    copyText.select();
+    document.execCommand('copy')
+    console.log('Copied Text')
+  }
+  </script>
 </section>
 {% endblock %}

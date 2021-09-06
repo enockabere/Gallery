@@ -28,8 +28,8 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
         <form class="d-flex" action="{% url 'search_results' %}">
-          <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
-          <button id="gits" class="btn btn-outline-success" type="submit">Search</button>
+          <input class="form-control me-2" type="search" placeholder="Search eg: Horrifying" name="search"  aria-label="Search">
+          <button id="gits" class="btn btn-outline-success" type="submit" data-bs-toggle="tooltip" data-bs-placement="bottom" title="category search">Search</button>
         </form>
       </div>
     </div>
@@ -43,6 +43,10 @@ $('#other').click(function () {
     }, 'slow');
     return false;
 });
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
   </script>
 </body>
 </html>
