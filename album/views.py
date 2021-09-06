@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse,Http404
-import datetime as dt
 from .models import Image,Category, Location
 
 # Create your views here.
@@ -20,21 +19,22 @@ def all_images(request):
     return render(request, 'all-images/all-images.html',{"categories":categories,"photos":photos,"locations":locations})
 
 def single_image(request, pk):
-    try:
-        showurl=request._current_scheme_host+request.path
-    except AttributeError:
-        raise Http404()
-        assert False
+    
+    showurl=request._current_scheme_host+request.path
+    
     photo = Image.objects.get(id=pk)
     return render(request, 'all-images/single-img.html',{"photo":photo,"showurl":showurl})
 
 def search_results(request):
     if 'search' in request.GET and request.GET["search"]:
         search_query = request.GET.get("search")
-        searched_images = Category.search_by_category(search_query)
+        searched_images = None
+        searched_category = Category.search_by_category(search_query)
+        for item in searched_category:
+            searched_images = Image.search_by_category(item.id)
         message = f"{search_query}"
-        photos = Image.objects.all()
-        return render(request, 'all-images/search.html',{"message":message,"images":searched_images,"photos":photos})
+        
+        return render(request, 'all-images/search.html',{"message":message,"images":searched_images})
     else:
         message = "You haven't searched for any item"
         return render(request,"all-images/search.html",{"message":message})

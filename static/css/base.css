@@ -94,6 +94,8 @@
 
 .more{
   margin-top: 20px;
+  display:inline-block;
+  padding-right: 10px;
 }
 #btns{
   background-color: #E67E22;
@@ -237,4 +239,21 @@
 }
 #sach{
   margin-top: 40px;
+}
+#dropdowns{
+  display: inline-block;
+  padding: 20px;
+}
+#dropdownMenuButton1{
+  background-color: #E67E22;
+  padding: 10px 30px;
+  border: 5px solid #E67E22;
+  font-size: 15px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+#dropdownMenuButton1:hover{
+  background-color: black;
+  border-color: #229954;
+  color: white;
 }

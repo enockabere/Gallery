@@ -15,6 +15,17 @@
           <a href="#images">
             <button class="btn" id="btns">View Gallery <span class="brand">Now</span></button>
           </a>
+          <div class="dropdown" id="dropdowns">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Location Filter
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="{% url 'allImages' %}">All</a></li>
+              {% for location in locations %}
+              <li><a class="dropdown-item" href="{% url 'allImages' %}?location={{location.location}}">{{location.location}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -46,23 +57,4 @@
     </div>
   </div>
 </section>
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            
-            <a href="">
-              <div class="card">
-                <img src="" class="card-img-top">
-                <div class="card-body">
-                  <p class="card-text"></p>
-                  <p>{{photo.category.name}}</p> 
-                </div>
-              </div>
-            </a>
-            
-        </div>
- 
-    </div>
-</div> -->
-
 {% endblock %}

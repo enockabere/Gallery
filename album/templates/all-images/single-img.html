@@ -15,7 +15,7 @@
                 <p class="card-text"id="texts"><small class="text-muted"><span class="br">Location</span> {{photo.location.location}}</small></p>
                 <p class="card-text"id="texts"><small class="text-muted"><span class="br">Category</span> {{photo.category.name}}</small></p>
                 <form action="">
-                  <input type="hidden" value="{{showurl}}" id="myInput">
+                  <input type="text" value="{{showurl}}" id="myInput">
                   <button type="button" id="gits2" onclick="Hello()" class="btn btn-outline-success">Copy Image Url</button>
                   <a class="btn btn-outline-dark" href="{% url 'allImages' %}" style="float:right">Close</a>
               </form>
