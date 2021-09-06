@@ -12,7 +12,7 @@ def all_images(request):
     if location == None:
         photos = Image.objects.all()
     else:
-         photos = Image.location_filter(location)
+        photos = Image.objects.filter(location__location__icontains=location)
     categories = Category.objects.all()
     locations = Location.objects.all()
     

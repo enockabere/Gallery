@@ -31,8 +31,4 @@ class Image(models.Model):
     def search_by_category(cls,search_term):
         news = cls.objects.filter(category=search_term)
         return news
-    def location_filter(cls,location):
-        album = cls.objects.filter(location__location__icontains=location)
-        return album
-    
     
