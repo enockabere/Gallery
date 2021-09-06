@@ -9,7 +9,7 @@ def all_images(request):
     if location == None:
         photos = Image.objects.all()
     else:
-         photos = Image.objects.filter(location__location__icontains=location)
+         photos = Image.location_filter(location)
     categories = Category.objects.all()
     locations = Location.objects.all()
     
@@ -26,7 +26,8 @@ def search_results(request):
         search_query = request.GET.get("search")
         searched_images = Category.search_by_category(search_query)
         message = f"{search_query}"
-        return render(request, 'all-images/search.html',{"message":message,"images":searched_images})
+        photos = Image.objects.all()
+        return render(request, 'all-images/search.html',{"message":message,"images":searched_images,"photos":photos})
     else:
         message = "You haven't searched for any item"
         return render(request,"all-images/search.html",{"message":message})

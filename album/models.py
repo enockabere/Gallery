@@ -6,12 +6,11 @@ class Category(models.Model):
     
     def __str__(self):
         return self.name
-    
     @classmethod
     def search_by_category(cls,search_query):
         album = cls.objects.filter(name__icontains=search_query)
         return album
-    
+       
 class Location(models.Model):
     location = models.CharField(max_length=100)
     
@@ -28,5 +27,9 @@ class Image(models.Model):
     
     def __str__(self):
         return self.name
+    @classmethod
+    def location_filter(cls,location):
+        album = cls.objects.filter(location__location__icontains=location)
+        return album
     
     
